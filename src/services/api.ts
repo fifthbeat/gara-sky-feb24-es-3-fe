@@ -1,33 +1,89 @@
-import useSWR, { SWRResponse } from "swr";
-import { mockData, mockProgramme, mockSeason, mockSerie } from "./mock";
+import useSWR from "swr";
+import { mockProgramme, mockSeason, mockSerie } from "./mock";
+import { ProgrammeData, SeasonData, SerieData } from "./types";
 
-const fetcher = async <TData>(url: string): Promise<TData> => {
-  // remove this
-  if (url === "/api/mock-data") {
-    return new Promise((resolve) => resolve(mockData));
-  }
-  if (url === "/api/mock-serie") {
-    return new Promise((resolve) => resolve(mockSerie));
-  }
-  if (url === "/api/mock-serie/8980dd13-ee24-42b3-b4b8-0b9fc59ab821") {
-    return new Promise((resolve) => resolve(mockSerie));
-  }
-  if (url === "/api/mock-season") {
-    return new Promise((resolve) => resolve(mockSeason));
-  }
-  if (url === "/api/mock-programme") {
-    return new Promise((resolve) => resolve(mockProgramme));
-  }
-  throw new Error("URL non valido");
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  const response = await fetch(url, {
-    method: "GET",
-    headers,
-  });
-  if (!response.ok) throw new Error("Network response was not ok");
-  return await response.json();
+type Response<TData> = {
+  data: TData | undefined;
+  isLoading: boolean;
+  isError: boolean;
 };
 
-export const useFetchData = <TData>(url: string): SWRResponse<TData, Error> => {
-  return useSWR<TData, Error>(url, fetcher);
-};
+export function useGetAllSeries(): Response<SerieData[]> {
+  const { data, error, isLoading } = useSWR<SerieData[]>(`/api/series`, fetcher);
+
+  return {
+    // data,
+    // isLoading,
+    // isError: error,
+    isLoading: false,
+    isError: false,
+    data: [mockSerie, mockSerie, mockSerie],
+  };
+}
+
+export function useGetSerieById(id: string): Response<SerieData> {
+  const { data, error, isLoading } = useSWR<SerieData>(`/api/series/${id}`, fetcher);
+
+  return {
+    // data,
+    // isLoading,
+    // isError: error,
+    isLoading: false,
+    isError: false,
+    data: mockSerie,
+  };
+}
+
+export function useGetAllSeasonBySerieId(serieId: string): Response<SeasonData[]> {
+  const { data, error, isLoading } = useSWR<SerieData[]>(`/api/series/${serieId}/season`, fetcher);
+
+  return {
+    // data,
+    // isLoading,
+    // isError: error,
+    isLoading: false,
+    isError: false,
+    data: [mockSeason, mockSeason, mockSeason, mockSeason],
+  };
+}
+
+export function useGetSeasonById(id: string): Response<SeasonData> {
+  const { data, error, isLoading } = useSWR<SerieData[]>(`/api/season/${id}`, fetcher);
+
+  return {
+    // data,
+    // isLoading,
+    // isError: error,
+    isLoading: false,
+    isError: false,
+    data: mockSeason,
+  };
+}
+
+export function useGetAllProgrammeBySeasonId(seasonId: string): Response<ProgrammeData[]> {
+  const { data, error, isLoading } = useSWR<SerieData[]>(`/api/season/${seasonId}/programme`, fetcher);
+
+  return {
+    // data,
+    // isLoading,
+    // isError: error,
+    isLoading: false,
+    isError: false,
+    data: [mockProgramme],
+  };
+}
+
+export function useGetProgrammeById(id: string): Response<ProgrammeData> {
+  const { data, error, isLoading } = useSWR<ProgrammeData>(`/api/programme/${id}`, fetcher);
+
+  return {
+    // serie: data,
+    // isLoading,
+    // isError: error,
+    isLoading: false,
+    isError: false,
+    data: mockProgramme,
+  };
+}

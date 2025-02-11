@@ -1,28 +1,34 @@
 import { useParams } from "react-router-dom";
-import { useFetchData } from "../../services/api";
-import { SerieData } from "../../services/types";
-import { getSynopsisByType } from "../../services/utils/getSynopsisByType";
-import { getImageUrlByUsage } from "../../services/utils/getImageUrlByUsage";
+
+import List from "@components/List";
+import { useGetAllSeasonBySerieId, useGetSerieById } from "@services/api";
+import { getImageUrlByUsage } from "@services/utils/getImageUrlByUsage";
+import { getSynopsisByType } from "@services/utils/getSynopsisByType";
 
 function SerieDetails() {
   const { uuid } = useParams();
 
-  const { data, error, isLoading } = useFetchData<SerieData>(`/api/mock-serie/${uuid}`);
+  const { data: serie, isError: isErrorSerie, isLoading: isLoadingSerie } = useGetSerieById(uuid!);
+  const { data: allSeason, isError: isErrorAllSeason, isLoading: isLoadingAllSeason } = useGetAllSeasonBySerieId(uuid!);
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
+  if (isErrorSerie || isErrorAllSeason) {
+    return <div>Failed to fetch serie</div>;
   }
 
-  if (isLoading || !data) {
+  if (isLoadingSerie || isLoadingAllSeason || !serie || !allSeason) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
-      <p>{data.localizableInformation[0].title}</p>
-      <p>{getSynopsisByType(data.localizableInformation[0].synopsis, "long")}</p>
-      <img src={getImageUrlByUsage(data.images, "Background")} alt={data.localizableInformation[0].title} />
-    </div>
+    <>
+      <div>
+        <p>{serie.title}</p>
+        <p>{getSynopsisByType(serie.subtitle, "long")}</p>
+        <img src={getImageUrlByUsage(serie.images, "Background")} alt={serie.title} />
+      </div>
+
+      <List routePath="/season" entities={allSeason} />
+    </>
   );
 }
 

@@ -1,48 +1,41 @@
-export type DataItem = {
-  id: string;
-  title: string;
-  genre: string;
-  image: string;
-  description: string;
-};
+/**
+ * SERIE
+ * id
+ * title
+ * subtitle [{type: "short", value: ""}, {type: "long", value: ""}]
+ * images [{usage: "Scene" | "Background" | "Cover", url: string}]
+ * tags ?
+ * genre ?
+ */
 
-type BaseEntity = {
-  uuid: string;
-  alternativeDate: AlternativeDate[];
-  genre: Genre[];
-  images: Image[];
-  lastUpdated: string;
-  tags: Tag[];
-  targetAudience: TargetAudience[];
-};
+/**
+ * STAGIONE
+ * id
+ * title
+ * subtitle [{type: "short", value: ""}, {type: "long", value: ""}]
+ * images [{usage: "Scene" | "Background" | "Cover", url: string}]
+ * parentId
+ * seasonNumber
+ * tags ?
+ * genre ?
+ */
 
-type AlternativeDate = {
-  type: string;
-  value: string;
-};
+/**
+ * PROGRAMME
+ * id
+ * title
+ * subtitle [{type: "short", value: ""}, {type: "long", value: ""}]
+ * images [{usage: "Scene" | "Background" | "Cover", url: string}]
+ * parentId
+ * durationSeconds
+ * episodeNumber
+ * tags ?
+ * genre ?
+ */
 
 type Genre = {
   type: string;
   value: string;
-};
-
-export type Image = {
-  checksum: string;
-  locale: string;
-  name: string;
-  size: string;
-  usage: "Scene" | "Background" | "Cover" | "BOXART";
-  url: string;
-  isEditorial: string;
-};
-
-type LocalizableInformation = {
-  locale: string;
-  alternativeTitle: Array<{ type: string; value: string }>;
-  synopsis: Array<{ type: string; value: string }>;
-  title: string;
-  seasonNumber?: string;
-  episodeNumber?: string;
 };
 
 type Tag = {
@@ -50,29 +43,24 @@ type Tag = {
   value: string;
 };
 
-type TargetAudience = {
-  type: string;
-  value: string;
+export type BaseEntity = {
+  uuid: string;
+  title: string;
+  subtitle: Array<{ type: "short" | "medium" | "long"; value: string }>;
+  images: Array<{ usage: "Scene" | "Background" | "Cover"; url: string }>;
+  genre: Genre[];
+  tags: Tag[];
+};
+
+export type SerieData = BaseEntity;
+
+export type SeasonData = BaseEntity & {
+  parentUuid: string;
+  seasonNumber: string;
 };
 
 export type ProgrammeData = BaseEntity & {
-  fragmentType: "PROGRAMME";
+  parentUuid: string;
   durationSeconds: string;
-  lastInSeason: boolean;
-  localizableInformation: LocalizableInformation[];
-  parentType: string;
-  parentUuid: string;
-};
-
-export type SerieData = BaseEntity & {
-  fragmentType: "SERIES";
-  localizableInformation: LocalizableInformation[];
-  isNeverMissFlag: boolean;
-};
-
-export type SeasonData = BaseEntity & {
-  fragmentType: "SEASON";
-  localizableInformation: LocalizableInformation[];
-  parentType: string;
-  parentUuid: string;
+  episodeNumber: string;
 };

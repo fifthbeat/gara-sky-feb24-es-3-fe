@@ -1,14 +1,12 @@
-import { useFetchData } from "../services/api";
-import { Link } from "react-router-dom";
-import { SerieData } from "../services/types";
-import Text from "../components/Atoms/Text";
-import { getSynopsisByType } from "../services/utils/getSynopsisByType";
+import Heading from "@components/Atoms/Heading";
+import List from "@components/List";
+import { useGetAllSeries } from "@services/api";
 
 function Home() {
-  const { data, error, isLoading } = useFetchData<SerieData>("/api/mock-serie");
+  const { data, isError, isLoading } = useGetAllSeries();
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
+  if (isError) {
+    return <div>Failed to fetch serie</div>;
   }
 
   if (isLoading || !data) {
@@ -17,13 +15,11 @@ function Home() {
 
   return (
     <div>
-      <Text>Serie in evidenza</Text>
-      <Link to={`/serie/${data.uuid}`}>
-        <div style={{ background: "#f3f3f3" }}>
-          <p>{data.localizableInformation[0].title}</p>
-          <p>{getSynopsisByType(data.localizableInformation[0].synopsis, "short")}</p>
-        </div>
-      </Link>
+      <Heading as="h3" variant="section-title">
+        Serie in evidenza
+      </Heading>
+
+      <List entities={data} routePath="/serie" />
     </div>
   );
 }
