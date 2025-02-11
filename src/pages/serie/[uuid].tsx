@@ -27,7 +27,7 @@ function SerieDetails() {
         <img src={getImageUrlByUsage(serie.images, "Background")} alt={serie.title} />
       </div>
 
-      <List routePath="/season" entities={allSeason} />
+      <List routePath="/season" entities={allSeason} variant="item" />
     </>
   );
 }

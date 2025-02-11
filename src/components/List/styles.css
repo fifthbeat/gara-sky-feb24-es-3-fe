@@ -2,3 +2,8 @@
   display: flex;
   gap: 12px;
 }
+
+.item-list__wrapper {
+  flex-direction: column;
+  gap: 8px;
+}

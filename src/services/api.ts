@@ -19,7 +19,26 @@ export function useGetAllSeries(): Response<SerieData[]> {
     // isError: error,
     isLoading: false,
     isError: false,
-    data: [mockSerie, mockSerie, mockSerie],
+    data: [
+      mockSerie,
+      {
+        ...mockSerie,
+        images: [
+          {
+            usage: "Scene",
+            url: "http://it.imageservice.sky.com/uuid/f0f535f1-9f40-4611-a1e2-d04ba653b0d3/16-9",
+          },
+          {
+            usage: "Background",
+            url: "http://it.imageservice.sky.com/uuid/f0f535f1-9f40-4611-a1e2-d04ba653b0d3/background",
+          },
+          {
+            usage: "Cover",
+            url: "http://it.imageservice.sky.com/uuid/f0f535f1-9f40-4611-a1e2-d04ba653b0d3/cover",
+          },
+        ],
+      },
+    ],
   };
 }
 

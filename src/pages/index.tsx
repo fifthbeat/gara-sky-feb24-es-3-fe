@@ -19,7 +19,7 @@ function Home() {
         Serie in evidenza
       </Heading>
 
-      <List entities={data} routePath="/serie" />
+      <List entities={data} routePath="/serie" variant="card" />
     </div>
   );
 }

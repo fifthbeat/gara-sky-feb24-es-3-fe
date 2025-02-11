@@ -31,7 +31,7 @@ function SeasonDetails() {
         <img src={getImageUrlByUsage(season.images, "Background")} alt={season.title} />
       </div>
 
-      <List routePath="/programme" entities={allSeason} />
+      <List routePath="/programme" entities={allSeason} variant="item" />
     </>
   );
 }
