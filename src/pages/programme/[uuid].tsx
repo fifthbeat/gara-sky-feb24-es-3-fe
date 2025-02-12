@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
-
+import EntityDetails from "@components/EntityDetails";
 import { useGetProgrammeById } from "@services/api";
-import { getImageUrlByUsage } from "@services/utils/getImageUrlByUsage";
-import { getSynopsisByType } from "@services/utils/getSynopsisByType";
+import ProgrammeInfo from "@components/ProgrammeInfo";
 
-function ProgrammeDetails() {
+function ProgrammeDetailsPage() {
   const { uuid } = useParams();
 
   const { data, isError, isLoading } = useGetProgrammeById(uuid!);
@@ -18,14 +17,13 @@ function ProgrammeDetails() {
   }
 
   return (
-    <>
-      <div>
-        <p>{data.title}</p>
-        <p>{getSynopsisByType(data.subtitle, "long")}</p>
-        <img src={getImageUrlByUsage(data.images, "Background")} alt={data.title} />
-      </div>
-    </>
+    <EntityDetails
+      images={data.images}
+      title={data.title}
+      subtitle={data.subtitle}
+      infoArea={<ProgrammeInfo episodeNumber={data.episodeNumber} durationSeconds={data.durationSeconds} />}
+    ></EntityDetails>
   );
 }
 
-export default ProgrammeDetails;
+export default ProgrammeDetailsPage;

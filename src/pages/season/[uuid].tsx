@@ -2,10 +2,9 @@ import { useParams } from "react-router-dom";
 
 import List from "@components/List";
 import { useGetAllProgrammeBySeasonId, useGetSeasonById } from "@services/api";
-import { getImageUrlByUsage } from "@services/utils/getImageUrlByUsage";
-import { getSynopsisByType } from "@services/utils/getSynopsisByType";
+import EntityDetails from "@components/EntityDetails";
 
-function SeasonDetails() {
+function SeasonDetailsPage() {
   const { uuid } = useParams();
 
   const { data: season, isError: isErrorSeason, isLoading: isLoadingSeason } = useGetSeasonById(uuid!);
@@ -24,16 +23,10 @@ function SeasonDetails() {
   }
 
   return (
-    <>
-      <div>
-        <p>{season.title}</p>
-        <p>{getSynopsisByType(season.subtitle, "long")}</p>
-        <img src={getImageUrlByUsage(season.images, "Background")} alt={season.title} />
-      </div>
-
-      <List routePath="/programme" entities={allSeason} variant="item" />
-    </>
+    <EntityDetails images={season.images} title={season.title} subtitle={season.subtitle}>
+      <List routePath="/programme" entities={allSeason} variant="item" title="Prossimi programmi" />
+    </EntityDetails>
   );
 }
 
-export default SeasonDetails;
+export default SeasonDetailsPage;

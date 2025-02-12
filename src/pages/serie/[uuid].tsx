@@ -1,12 +1,9 @@
-import { useParams } from "react-router-dom";
-
+import EntityDetails from "@components/EntityDetails";
 import List from "@components/List";
 import { useGetAllSeasonBySerieId, useGetSerieById } from "@services/api";
-import { getImageUrlByUsage } from "@services/utils/getImageUrlByUsage";
-import { getSynopsisByType } from "@services/utils/getSynopsisByType";
-import Header from "@components/Header";
+import { useParams } from "react-router-dom";
 
-function SerieDetails() {
+function SerieDetailsPage() {
   const { uuid } = useParams();
 
   const { data: serie, isError: isErrorSerie, isLoading: isLoadingSerie } = useGetSerieById(uuid!);
@@ -21,18 +18,10 @@ function SerieDetails() {
   }
 
   return (
-    <>
-      <Header />
-
-      <div>
-        <p>{serie.title}</p>
-        <p>{getSynopsisByType(serie.subtitle, "long")}</p>
-        <img src={getImageUrlByUsage(serie.images, "Background")} alt={serie.title} />
-      </div>
-
-      <List routePath="/season" entities={allSeason} variant="item" />
-    </>
+    <EntityDetails images={serie.images} title={serie.title} subtitle={serie.subtitle}>
+      <List routePath="/season" entities={allSeason} variant="item" title="Stagioni" />
+    </EntityDetails>
   );
 }
 
-export default SerieDetails;
+export default SerieDetailsPage;
