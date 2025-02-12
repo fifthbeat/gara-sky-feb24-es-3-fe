@@ -12,9 +12,10 @@ type Props = {
   images: BaseEntity["images"];
   children?: React.ReactNode;
   infoArea?: React.ReactNode;
+  buttonArea?: React.ReactNode;
 };
 
-const EntityDetails = ({ title, subtitle, images, children, infoArea }: Props) => {
+const EntityDetails = ({ title, subtitle, images, children, infoArea, buttonArea }: Props) => {
   return (
     <>
       <div className="details__image-container">
@@ -34,6 +35,8 @@ const EntityDetails = ({ title, subtitle, images, children, infoArea }: Props) =
 
           {children}
         </div>
+
+        {buttonArea}
       </div>
     </>
   );

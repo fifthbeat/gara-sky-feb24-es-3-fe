@@ -1,0 +1,42 @@
+.tab-container {
+  margin-bottom: 40px;
+}
+
+.tab-list {
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 150px;
+  height: 80px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--product-neutral-00);
+  background: var(--product-neutral-800);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.tab:not(.disabled, .selected):focus,
+.tab:not(.disabled, .selected):hover,
+.tab:not(.disabled, .selected):focus-visible,
+.tab:not(.disabled, .selected):focus-within {
+  background: var(--product-neutral-700);
+  transform: translateY(-2px);
+}
+
+.tab.disabled {
+  cursor: not-allowed;
+}
+
+.tab.selected {
+  background: var(--product-blue-700);
+  color: white;
+}

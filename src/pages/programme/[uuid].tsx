@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import EntityDetails from "@components/EntityDetails";
 import { useGetProgrammeById } from "@services/api";
 import ProgrammeInfo from "@components/ProgrammeInfo";
+import Button from "@components/Button";
+import { IconDownload, IconPlayerPlayFilled } from "@tabler/icons-react";
 
 function ProgrammeDetailsPage() {
   const { uuid } = useParams();
@@ -22,7 +24,13 @@ function ProgrammeDetailsPage() {
       title={data.title}
       subtitle={data.subtitle}
       infoArea={<ProgrammeInfo episodeNumber={data.episodeNumber} durationSeconds={data.durationSeconds} />}
-    ></EntityDetails>
+      buttonArea={
+        <div className="button-area">
+          <Button label="Inizia a guardare" onClick={() => {}} icon={<IconPlayerPlayFilled size={16} />} />
+          <Button label="Download" onClick={() => {}} icon={<IconDownload size={16} />} variant="secondary" />
+        </div>
+      }
+    />
   );
 }
 
