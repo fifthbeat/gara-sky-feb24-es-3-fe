@@ -112,7 +112,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --product-neutral-800: var(--product-neutral-100);
+    --product-neutral-100: var(--product-neutral-800);
   }
 }
 
@@ -121,8 +121,8 @@
   line-height: 1.5;
 
   color-scheme: light dark;
-  color: var(--product-neutral-800);
-  background: var(--background);
+  color: var(--product-neutral-100);
+  background: var(--foreground);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

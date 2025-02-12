@@ -51,7 +51,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
-  color: #000;
+  color: var(--product-neutral-900);
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -74,7 +74,7 @@
 
 .item-link__subtitle {
   font-size: 14px;
-  color: var(--product-neutral-700);
+  color: var(--product-neutral-400);
 }
 
 @media (min-width: 768px) {

@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  background: transparent;
+  padding: 0 24px;
+}
+
+.header__logo {
+  height: 32px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    height: 70px;
+    justify-content: flex-start;
+  }
+}

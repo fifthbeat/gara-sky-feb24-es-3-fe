@@ -1,4 +1,5 @@
 import Heading from "@components/Atoms/Heading";
+import Header from "@components/Header";
 import List from "@components/List";
 import { useGetAllSeries } from "@services/api";
 
@@ -15,8 +16,10 @@ function Home() {
 
   return (
     <div>
+      <Header />
+
       <Heading as="h3" variant="section-title">
-        Serie in evidenza
+        In evidenza
       </Heading>
 
       <List entities={data} routePath="/serie" variant="card" />
