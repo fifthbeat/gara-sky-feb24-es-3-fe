@@ -6,10 +6,15 @@ type Props = {
   children: string;
   withGradient?: boolean;
   variant: "large-display" | "display" | "page-title" | "section-title";
+  className?: string;
 };
 
-const Heading = ({ children, as: Component, variant, withGradient = false }: Props) => {
-  return <Component className={cn("heading", variant, withGradient ? "heading__gradient" : "")}>{children}</Component>;
+const Heading = ({ children, as: Component, variant, withGradient = false, className }: Props) => {
+  return (
+    <Component className={cn("heading", variant, withGradient ? "heading__gradient" : "", className)}>
+      {children}
+    </Component>
+  );
 };
 
 export default Heading;
