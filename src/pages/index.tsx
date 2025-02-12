@@ -2,6 +2,7 @@ import Heading from "@components/Atoms/Heading";
 import Header from "@components/Header";
 import List from "@components/List";
 import { useGetAllSeries } from "@services/api";
+import { Outlet } from "react-router";
 
 function Home() {
   const { data, isError, isLoading } = useGetAllSeries();

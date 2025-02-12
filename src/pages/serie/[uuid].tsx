@@ -4,6 +4,7 @@ import List from "@components/List";
 import { useGetAllSeasonBySerieId, useGetSerieById } from "@services/api";
 import { getImageUrlByUsage } from "@services/utils/getImageUrlByUsage";
 import { getSynopsisByType } from "@services/utils/getSynopsisByType";
+import Header from "@components/Header";
 
 function SerieDetails() {
   const { uuid } = useParams();
@@ -21,6 +22,8 @@ function SerieDetails() {
 
   return (
     <>
+      <Header />
+
       <div>
         <p>{serie.title}</p>
         <p>{getSynopsisByType(serie.subtitle, "long")}</p>
