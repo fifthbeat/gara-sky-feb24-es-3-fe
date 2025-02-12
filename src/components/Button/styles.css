@@ -11,8 +11,10 @@
   background-color: var(--product-blue-700);
   transition: background-color 0.2s ease, transform 0.1s ease;
 
+  &:focus,
   &:hover,
-  &:focus {
+  &:focus-visible,
+  &:focus-within {
     background-color: var(--product-blue-800);
   }
 
