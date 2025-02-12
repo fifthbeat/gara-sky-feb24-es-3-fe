@@ -1,0 +1,33 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--product-blue-700);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:hover,
+  &:focus {
+    background-color: var(--product-blue-800);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.button-secondary {
+  background-color: var(--product-neutral-00);
+  color: var(--product-blue-700);
+
+  &:hover,
+  &:focus {
+    background-color: var(--product-neutral-00);
+    color: var(--product-blue-800);
+  }
+}
