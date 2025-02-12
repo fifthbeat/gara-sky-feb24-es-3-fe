@@ -106,6 +106,9 @@
   --breakpoint-large: 1025px;
   --breakpoint-x-large: 1441px;
   --breakpoint-2x-large: 1921px;
+
+  --desktop-header-height: 70px;
+  --mobile-header-height: 60px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -130,6 +133,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
