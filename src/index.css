@@ -112,6 +112,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --product-neutral-800: var(--product-neutral-100);
   }
 }
 
@@ -120,7 +121,7 @@
   line-height: 1.5;
 
   color-scheme: light dark;
-  color: var(--foreground);
+  color: var(--product-neutral-800);
   background: var(--background);
 
   font-synthesis: none;
@@ -129,7 +130,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+* {
+  box-sizing: border-box;
 }

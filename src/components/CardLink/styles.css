@@ -1,0 +1,60 @@
+.card__link {
+  position: relative;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+  width: 150px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card__link:focus,
+.card__link:hover,
+.card__link:focus-visible,
+.card__link:focus-within {
+  transform: scale(1.03);
+}
+
+.card::after {
+  bottom: 0px;
+  content: "";
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 70%);
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card__content {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.4) 35%,
+    rgba(0, 0, 0, 0.6) 75%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  color: var(--product-neutral-00);
+  width: 100%;
+  padding: 12px;
+  padding-top: 24px;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .card__link {
+    width: 250px;
+  }
+}
