@@ -4,6 +4,7 @@ import List from "@components/List";
 import { useGetAllProgrammeBySeasonId, useGetSeasonById } from "@services/api";
 import EntityDetails from "@components/EntityDetails";
 import EntityDetailsSkeleton from "@components/EntityDetails/EntityDetailsSkeleton";
+import ErrorFallback from "@components/ErrorFallback";
 
 function SeasonDetailsPage() {
   const { uuid } = useParams();
@@ -16,7 +17,7 @@ function SeasonDetailsPage() {
   } = useGetAllProgrammeBySeasonId(uuid!);
 
   if (isErrorSeason || isErrorAllSeason) {
-    return <div>Failed to fetch serie</div>;
+    return <ErrorFallback subtitle="Non è stato possibile recuperare le informazioni della stagione" />;
   }
 
   return (

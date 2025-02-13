@@ -5,6 +5,7 @@ import ProgrammeInfo from "@components/ProgrammeInfo";
 import Button from "@components/Button";
 import { IconDownload, IconPlayerPlayFilled } from "@tabler/icons-react";
 import EntityDetailsSkeleton from "@components/EntityDetails/EntityDetailsSkeleton";
+import ErrorFallback from "@components/ErrorFallback";
 
 function ProgrammeDetailsPage() {
   const { uuid } = useParams();
@@ -12,7 +13,7 @@ function ProgrammeDetailsPage() {
   const { data, isError, isLoading } = useGetProgrammeById(uuid!);
 
   if (isError) {
-    return <div>Failed to fetch serie</div>;
+    return <ErrorFallback subtitle="Non è stato possibile recuperare le informazioni sul programma selezionato" />;
   }
 
   if (isLoading || !data) {
