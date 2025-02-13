@@ -1,8 +1,7 @@
 import useSWR from "swr";
-import { mockProgramme, mockSeason, mockSerie } from "./mock";
 import { ProgrammeData, SeasonData, SerieData } from "./types";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(`${import.meta.env.VITE_BASE_PATH}${url}`).then((res) => res.json());
 
 type Response<TData> = {
   data: TData | undefined;
@@ -11,98 +10,61 @@ type Response<TData> = {
 };
 
 export function useGetAllSeries(): Response<SerieData[]> {
-  const { data, error, isLoading } = useSWR<SerieData[]>(`/api/series`, fetcher);
+  const { data, error, isLoading } = useSWR<SerieData[]>(`/series`, fetcher);
 
   return {
-    // data,
-    // isLoading,
-    // isError: error,
-    isLoading: false,
-    isError: false,
-    data: [
-      mockSerie,
-      {
-        ...mockSerie,
-        images: [
-          {
-            usage: "Scene",
-            url: "http://it.imageservice.sky.com/uuid/f0f535f1-9f40-4611-a1e2-d04ba653b0d3/16-9",
-          },
-          {
-            usage: "Background",
-            url: "http://it.imageservice.sky.com/uuid/f0f535f1-9f40-4611-a1e2-d04ba653b0d3/background",
-          },
-          {
-            usage: "Cover",
-            url: "http://it.imageservice.sky.com/uuid/f0f535f1-9f40-4611-a1e2-d04ba653b0d3/cover",
-          },
-        ],
-      },
-    ],
+    data,
+    isLoading,
+    isError: error,
   };
 }
 
 export function useGetSerieById(id: string): Response<SerieData> {
-  const { data, error, isLoading } = useSWR<SerieData>(`/api/series/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR<SerieData>(`/series/${id}`, fetcher);
 
   return {
-    // data,
-    // isLoading,
-    // isError: error,
-    isLoading: false,
-    isError: false,
-    data: mockSerie,
+    data,
+    isLoading,
+    isError: error,
   };
 }
 
 export function useGetAllSeasonBySerieId(serieId: string): Response<SeasonData[]> {
-  const { data, error, isLoading } = useSWR<SerieData[]>(`/api/series/${serieId}/season`, fetcher);
+  const { data, error, isLoading } = useSWR<SeasonData[]>(`/series/${serieId}/season`, fetcher);
 
   return {
-    // data,
-    // isLoading,
-    // isError: error,
-    isLoading: false,
-    isError: false,
-    data: [mockSeason, mockSeason, mockSeason, mockSeason],
+    data,
+    isLoading,
+    isError: error,
   };
 }
 
 export function useGetSeasonById(id: string): Response<SeasonData> {
-  const { data, error, isLoading } = useSWR<SerieData[]>(`/api/season/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR<SeasonData>(`/season/${id}`, fetcher);
 
   return {
-    // data,
-    // isLoading,
-    // isError: error,
-    isLoading: false,
-    isError: false,
-    data: mockSeason,
+    data,
+    isLoading,
+    isError: error,
   };
 }
 
 export function useGetAllProgrammeBySeasonId(seasonId: string): Response<ProgrammeData[]> {
-  const { data, error, isLoading } = useSWR<SerieData[]>(`/api/season/${seasonId}/programme`, fetcher);
+  const { data, error, isLoading } = useSWR<ProgrammeData[]>(`/season/${seasonId}/programme`, fetcher);
 
   return {
-    // data,
-    // isLoading,
-    // isError: error,
-    isLoading: false,
-    isError: false,
-    data: [mockProgramme],
+    data,
+    isLoading,
+    isError: error,
   };
 }
 
 export function useGetProgrammeById(id: string): Response<ProgrammeData> {
-  const { data, error, isLoading } = useSWR<ProgrammeData>(`/api/programme/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR<ProgrammeData>(`/programme/${id}`, fetcher);
 
   return {
-    // serie: data,
-    // isLoading,
-    // isError: error,
-    isLoading: false,
-    isError: false,
-    data: mockProgramme,
+    data,
+    isLoading,
+    isError: error,
   };
 }

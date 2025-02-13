@@ -12,7 +12,7 @@ const Layout = ({ fullWidth }: Props) => {
     <div className="layout">
       <Header />
 
-      <main className={cn("layout__content", "container-wrapper", fullWidth ? "layout__content--full-width" : "")}>
+      <main className={cn("layout__content", { ["layout__content--full-width"]: fullWidth })}>
         <Outlet />
       </main>
     </div>

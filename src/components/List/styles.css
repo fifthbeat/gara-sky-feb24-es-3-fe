@@ -1,15 +1,31 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: var(--grid-gutter);
 }
 
 .list__wrapper {
   display: flex;
-  gap: 12px;
+  gap: var(--spacing-2x-small);
+  flex-wrap: wrap;
 }
 
 .item-list__wrapper {
   flex-direction: column;
-  gap: 8px;
+  gap: var(--spacing-3x-small);
+}
+
+.list__skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--grid-gutter);
+}
+
+.list__wrapper__skeleton {
+  padding-left: 12px;
+  padding-right: 12px;
+  display: flex;
+  gap: var(--spacing-3x-small);
+  flex-wrap: wrap;
 }

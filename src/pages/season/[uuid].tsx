@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import List from "@components/List";
 import { useGetAllProgrammeBySeasonId, useGetSeasonById } from "@services/api";
 import EntityDetails from "@components/EntityDetails";
+import EntityDetailsSkeleton from "@components/EntityDetails/EntityDetailsSkeleton";
 
 function SeasonDetailsPage() {
   const { uuid } = useParams();
@@ -18,14 +19,24 @@ function SeasonDetailsPage() {
     return <div>Failed to fetch serie</div>;
   }
 
-  if (isLoadingSeason || isLoadingAllSeason || !season || !allSeason) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <EntityDetails images={season.images} title={season.title} subtitle={season.subtitle}>
-      <List routePath="/programme" entities={allSeason} variant="item" title="Prossimi programmi" />
-    </EntityDetails>
+    <>
+      {isLoadingSeason || !season ? (
+        <EntityDetailsSkeleton />
+      ) : (
+        <EntityDetails images={season.images} title={season.title} subtitle={season.subtitle} />
+      )}
+
+      <div className="layout__container">
+        <List
+          routePath="/programme"
+          entities={allSeason}
+          variant="item"
+          title="Prossimi programmi"
+          isLoading={isLoadingAllSeason}
+        />
+      </div>
+    </>
   );
 }
 
