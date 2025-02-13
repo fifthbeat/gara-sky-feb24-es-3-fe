@@ -30,7 +30,7 @@ export function useGetSerieById(id: string): Response<SerieData> {
 }
 
 export function useGetAllSeasonBySerieId(serieId: string): Response<SeasonData[]> {
-  const { data, error, isLoading } = useSWR<SeasonData[]>(`/series/${serieId}/season`, fetcher);
+  const { data, error, isLoading } = useSWR<SeasonData[]>(`/series/${serieId}/seasons`, fetcher);
 
   return {
     data,
@@ -40,7 +40,7 @@ export function useGetAllSeasonBySerieId(serieId: string): Response<SeasonData[]
 }
 
 export function useGetSeasonById(id: string): Response<SeasonData> {
-  const { data, error, isLoading } = useSWR<SeasonData>(`/season/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR<SeasonData>(`/seasons/${id}`, fetcher);
 
   return {
     data,
@@ -50,7 +50,7 @@ export function useGetSeasonById(id: string): Response<SeasonData> {
 }
 
 export function useGetAllProgrammeBySeasonId(seasonId: string): Response<ProgrammeData[]> {
-  const { data, error, isLoading } = useSWR<ProgrammeData[]>(`/season/${seasonId}/programme`, fetcher);
+  const { data, error, isLoading } = useSWR<ProgrammeData[]>(`/seasons/${seasonId}/programmes`, fetcher);
 
   return {
     data,
@@ -60,7 +60,7 @@ export function useGetAllProgrammeBySeasonId(seasonId: string): Response<Program
 }
 
 export function useGetProgrammeById(id: string): Response<ProgrammeData> {
-  const { data, error, isLoading } = useSWR<ProgrammeData>(`/programme/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR<ProgrammeData>(`/programmes/${id}`, fetcher);
 
   return {
     data,

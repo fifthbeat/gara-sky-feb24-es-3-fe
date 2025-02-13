@@ -112,7 +112,7 @@ app.get("/api/series/:id", async (req, res) => {
   });
 });
 
-app.get("/api/series/:serieId/season", async (req, res) => {
+app.get("/api/series/:serieId/seasons", async (req, res) => {
   await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000));
   res.json([
     {
@@ -287,7 +287,7 @@ app.get("/api/series/:serieId/season", async (req, res) => {
   ]);
 });
 
-app.get("/api/season/:id", async (req, res) => {
+app.get("/api/seasons/:id", async (req, res) => {
   await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000));
   res.json({
     uuid: "42a97c81-2ec0-4563-a122-1fd3140ca537",
@@ -460,7 +460,7 @@ app.get("/api/season/:id", async (req, res) => {
   });
 });
 
-app.get("/api/season/:seasonId/programme", async (req, res) => {
+app.get("/api/seasons/:seasonId/programmes", async (req, res) => {
   await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000));
   res.json([
     {
@@ -641,7 +641,7 @@ app.get("/api/season/:seasonId/programme", async (req, res) => {
   ]);
 });
 
-app.get("/api/programme/:id", async (req, res) => {
+app.get("/api/programmes/:id", async (req, res) => {
   await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000));
   res.json({
     uuid: "f0f535f1-9f40-4611-a1e2-d04ba653b0d3",
