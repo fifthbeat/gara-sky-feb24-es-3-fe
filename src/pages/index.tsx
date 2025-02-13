@@ -1,6 +1,5 @@
-import List from "@components/List";
+import AllSeriesList from "@components/AllSeriesList";
 import { TabItem, TabList } from "@components/TabList";
-import { useGetAllSeries } from "@services/api";
 import { IconBallBasketball, IconDeviceTv, IconMovie, IconSearch } from "@tabler/icons-react";
 
 const tabs: TabItem[] = [
@@ -11,20 +10,10 @@ const tabs: TabItem[] = [
 ];
 
 function Home() {
-  const { data, isError, isLoading } = useGetAllSeries();
-
-  if (isError) {
-    return <div>Failed to fetch serie</div>;
-  }
-
-  if (isLoading || !data) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <TabList items={tabs} selectedKey="sports" />
-      <List entities={data} routePath="/serie" variant="card" title="In evidenza" />
+      <AllSeriesList />
     </>
   );
 }

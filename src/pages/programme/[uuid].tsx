@@ -4,6 +4,7 @@ import { useGetProgrammeById } from "@services/api";
 import ProgrammeInfo from "@components/ProgrammeInfo";
 import Button from "@components/Button";
 import { IconDownload, IconPlayerPlayFilled } from "@tabler/icons-react";
+import EntityDetailsSkeleton from "@components/EntityDetails/EntityDetailsSkeleton";
 
 function ProgrammeDetailsPage() {
   const { uuid } = useParams();
@@ -15,7 +16,7 @@ function ProgrammeDetailsPage() {
   }
 
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <EntityDetailsSkeleton withButton withInfoArea />;
   }
 
   return (

@@ -2,11 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: var(--spacing-3x-small);
+  padding: var(--spacing-3x-small) var(--spacing-x-small);
   font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-3x-small);
   cursor: pointer;
   background-color: var(--product-blue-700);
   transition: background-color 0.2s ease, transform 0.1s ease;

@@ -1,10 +1,9 @@
 .card__link {
   position: relative;
-  border-radius: 12px;
+  border-radius: var(--radius-2x-small);
   transition: all 0.3s ease-in-out;
   width: 150px;
   position: relative;
-  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -43,13 +42,13 @@
   );
   color: var(--product-neutral-00);
   width: 100%;
-  padding: 12px;
-  padding-top: 24px;
+  padding: var(--spacing-2x-small);
+  padding-top: var(--spacing-small);
   transition: opacity 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  border-radius: 12px;
+  gap: var(--spacing-3x-small);
+  border-radius: var(--radius-2x-small);
   z-index: 1;
 }
 

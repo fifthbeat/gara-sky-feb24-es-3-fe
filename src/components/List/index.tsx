@@ -5,13 +5,15 @@ import CardLink from "@components/CardLink";
 import { getImageUrlByUsage } from "@services/utils/getImageUrlByUsage";
 import ItemLink from "@components/ItemLink";
 import Text from "@components/Atoms/Text";
+import ListSkeleton from "./ListSkeleton";
 import "./styles.css";
 
 type Props = {
-  entities: BaseEntity[];
+  entities: BaseEntity[] | undefined;
   routePath: string;
   variant: "card" | "item";
   title?: string;
+  isLoading?: boolean | undefined;
 };
 
 const variantToComponent = {
@@ -19,8 +21,13 @@ const variantToComponent = {
   item: ItemLink,
 };
 
-const List = ({ entities, routePath, variant, title }: Props) => {
+const List = ({ entities, routePath, variant, title, isLoading }: Props) => {
   const Component = variantToComponent[variant];
+
+  if (isLoading || !entities) {
+    return <ListSkeleton />;
+  }
+
   return (
     <div className="list">
       {title && <Text variant="body">{title}</Text>}
