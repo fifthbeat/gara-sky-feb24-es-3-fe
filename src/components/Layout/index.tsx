@@ -1,8 +1,8 @@
-import Header from "@components/Header";
-import { Outlet } from "react-router";
-import cn from "classnames";
-import "./styles.css";
 import Footer from "@components/Footer";
+import Header from "@components/Header";
+import cn from "classnames";
+import { Outlet } from "react-router";
+import "./styles.css";
 
 type Props = {
   fullWidth?: boolean;

@@ -1,3 +1,4 @@
+import ErrorFallback from "@components/ErrorFallback";
 import List from "@components/List";
 import { CardListSkeleton } from "@components/Skeleton";
 import { useGetAllSeries } from "@services/api";
@@ -6,7 +7,7 @@ const AllSeriesList = () => {
   const { data, isError, isLoading } = useGetAllSeries();
 
   if (isError) {
-    return <div>Failed to fetch serie</div>;
+    return <ErrorFallback subtitle="Non è stato possibile recuperare la lista delle serie" />;
   }
 
   if (isLoading || !data) {

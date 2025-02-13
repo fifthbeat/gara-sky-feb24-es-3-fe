@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 // Define mock endpoints
 
 // Mock GET request for a user profile
-app.get("/api/series", async (req, res) => {
+app.get("/api/series", async (req, res, ctx) => {
   await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000));
   res.json([
     {

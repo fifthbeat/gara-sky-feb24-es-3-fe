@@ -1,5 +1,6 @@
 import EntityDetails from "@components/EntityDetails";
 import EntityDetailsSkeleton from "@components/EntityDetails/EntityDetailsSkeleton";
+import ErrorFallback from "@components/ErrorFallback";
 import List from "@components/List";
 import { useGetAllSeasonBySerieId, useGetSerieById } from "@services/api";
 import { useParams } from "react-router-dom";
@@ -11,7 +12,7 @@ function SerieDetailsPage() {
   const { data: allSeason, isError: isErrorAllSeason, isLoading: isLoadingAllSeason } = useGetAllSeasonBySerieId(uuid!);
 
   if (isErrorSerie || isErrorAllSeason) {
-    return <div>Failed to fetch serie</div>;
+    return <ErrorFallback subtitle="Non è stato possibile recuperare le informazioni della serie" />;
   }
 
   return (
