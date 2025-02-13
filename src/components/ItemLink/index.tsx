@@ -30,7 +30,7 @@ const ItemLink = ({ href, title, imageUrl, imageAlt = title, subtitle }: Props) 
         </div>
       </div>
       <div className="item-link__content">
-        <Text variant="body-fluid" className="item-link__title" weight="medium">
+        <Text variant="body-small" weight="medium">
           {title}
         </Text>
         <Text variant="small-text" className="item-link__subtitle" weight="medium">
