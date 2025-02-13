@@ -23,10 +23,14 @@ const CardLink = ({ title, imageUrl, imageAlt = title, href, subtitle }: Props) 
   return (
     <Link {...linkProps} {...hoverProps} {...focusProps} ref={ref} to={href} className="card__link">
       <div className="card__content">
-        <Text as="p" variant="body">
+        <Text as="p" variant="body" weight="bold">
           {title}
         </Text>
-        {(isHovered || isFocusVisible) && <Text variant="body-small">{subtitle}</Text>}
+        {(isHovered || isFocusVisible) && (
+          <Text variant="small-text" weight="medium">
+            {subtitle}
+          </Text>
+        )}
       </div>
       <div className="card">
         <img src={imageUrl} alt={imageAlt} className="card__image" />

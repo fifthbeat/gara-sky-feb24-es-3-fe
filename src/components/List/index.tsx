@@ -30,7 +30,11 @@ const List = ({ entities, routePath, variant, title, isLoading }: Props) => {
 
   return (
     <div className="list">
-      {title && <Text variant="body">{title}</Text>}
+      {title && (
+        <Text variant="body" weight="medium">
+          {title}
+        </Text>
+      )}
 
       <div className={cn("list__wrapper", variant === "card" ? "card-list__wrapper" : "item-list__wrapper")}>
         {entities.map((entity) => {
