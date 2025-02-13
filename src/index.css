@@ -139,7 +139,7 @@
 }
 
 :root {
-  font-family: SkyMedium, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: SkyRegular, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
 
   color-scheme: light dark;
@@ -161,6 +161,14 @@
   flex-direction: column;
 }
 
+.text__medium {
+  font-family: SkyMedium;
+}
+
+.text__bold {
+  font-family: SkyBold;
+}
+
 .button-area {
   display: flex;
   gap: var(--grid-gutter);
@@ -168,49 +176,52 @@
   flex-direction: column;
 }
 
-@media (min-width: 768px) {
-  .button-area {
-    flex-direction: row;
-  }
-}
-
 .layout__container {
   max-width: var(--container-max-width-small);
-  padding: var(--grid-margin-small);
+  padding-left: var(--grid-margin-small);
+  padding-right: var(--grid-margin-small);
+  padding-bottom: var(--grid-margin-medium);
   margin: 0 auto;
-  padding-top: 0px;
   width: 100%;
   position: relative;
 }
 
 @media (min-width: 768px) {
+  .button-area {
+    flex-direction: row;
+  }
+
   .layout__container {
     max-width: var(--container-max-width-small);
-    padding: var(--grid-margin-small);
-    padding-top: 0px;
+    padding-left: var(--grid-margin-small);
+    padding-right: var(--grid-margin-small);
+    padding-bottom: var(--grid-margin-small);
   }
 }
 
 @media (min-width: 1024px) {
   .layout__container {
     max-width: var(--container-max-width-medium);
-    padding: var(--grid-margin-medium);
-    padding-top: 0px;
+    padding-left: var(--grid-margin-medium);
+    padding-right: var(--grid-margin-medium);
+    padding-bottom: var(--grid-margin-medium);
   }
 }
 
 @media (min-width: 1440px) {
   .layout__container {
     max-width: var(--container-max-width-large);
-    padding: var(--grid-margin-large);
-    padding-top: 0px;
+    padding-left: var(--grid-margin-large);
+    padding-right: var(--grid-margin-large);
+    padding-bottom: var(--grid-margin-large);
   }
 }
 
 @media (min-width: 1920px) {
   .layout__container {
     max-width: var(--container-max-width-x-large);
-    padding: var(--grid-margin-x-large);
-    padding-top: 0px;
+    padding-left: var(--grid-margin-x-large);
+    padding-right: var(--grid-margin-x-large);
+    padding-bottom: var(--grid-margin-x-large);
   }
 }

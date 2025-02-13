@@ -26,10 +26,12 @@ const EntityDetails = ({ title, subtitle, images, infoArea, buttonArea }: Props)
 
         <div className={cn("flex-column", "details__content")}>
           <div>
-            <Heading as="h3" variant="page-title">
+            <Heading as="h3" variant="page-title" weight="bold">
               {title}
             </Heading>
-            <Text variant="body">{getSynopsisByType(subtitle, "long")}</Text>
+            <Text variant="body" weight="medium">
+              {getSynopsisByType(subtitle, "long")}
+            </Text>
           </div>
         </div>
 

@@ -10,10 +10,10 @@ type Props = {
 const ProgrammeInfo = ({ durationSeconds, episodeNumber }: Props) => {
   return (
     <div className="programme-info">
-      <Text as="span" variant="small-text">
+      <Text as="span" variant="small-text" weight="medium">
         Episodi: {episodeNumber}
       </Text>
-      <Text as="span" variant="small-text">
+      <Text as="span" variant="small-text" weight="medium">
         Durata: {formatSecondsToMinutes(durationSeconds)}
       </Text>
     </div>

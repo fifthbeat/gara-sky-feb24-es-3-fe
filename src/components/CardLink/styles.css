@@ -42,8 +42,7 @@
   );
   color: var(--product-neutral-00);
   width: 100%;
-  padding: var(--spacing-2x-small);
-  padding-top: var(--spacing-small);
+  padding: var(--spacing-small);
   transition: opacity 0.3s ease-in-out;
   display: flex;
   flex-direction: column;

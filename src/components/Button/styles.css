@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-3x-small);
-  padding: var(--spacing-3x-small) var(--spacing-x-small);
+  padding: var(--spacing-2x-small) var(--spacing-x-small);
   font-weight: bold;
   border: none;
   border-radius: var(--radius-3x-small);

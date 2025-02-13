@@ -46,7 +46,9 @@ const Tab = ({ item, state, selectedKey }: TabProps) => {
       className={cn("tab", { selected: isSelected || selectedKey === key, disabled: isDisabled || item.isDisabled })}
     >
       {item.icon}
-      <Text variant="small-text">{item.title}</Text>
+      <Text variant="small-text" weight="medium">
+        {item.title}
+      </Text>
     </div>
   );
 };
