@@ -9,61 +9,65 @@ type Response<TData> = {
   isError: boolean;
 };
 
+type ApiResponse<TData> = {
+  data: TData;
+};
+
 export function useGetAllSeries(): Response<SerieData[]> {
-  const { data, error, isLoading } = useSWR<SerieData[]>(`/series`, fetcher);
+  const { data, error, isLoading } = useSWR<ApiResponse<SerieData[]>>(`/series`, fetcher);
 
   return {
-    data,
+    data: data?.data,
     isLoading,
     isError: error,
   };
 }
 
 export function useGetSerieById(id: string): Response<SerieData> {
-  const { data, error, isLoading } = useSWR<SerieData>(`/series/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR<ApiResponse<SerieData>>(`/series/${id}`, fetcher);
 
   return {
-    data,
+    data: data?.data,
     isLoading,
     isError: error,
   };
 }
 
 export function useGetAllSeasonBySerieId(serieId: string): Response<SeasonData[]> {
-  const { data, error, isLoading } = useSWR<SeasonData[]>(`/series/${serieId}/seasons`, fetcher);
+  const { data, error, isLoading } = useSWR<ApiResponse<SeasonData[]>>(`/series/${serieId}/seasons`, fetcher);
 
   return {
-    data,
+    data: data?.data,
     isLoading,
     isError: error,
   };
 }
 
 export function useGetSeasonById(id: string): Response<SeasonData> {
-  const { data, error, isLoading } = useSWR<SeasonData>(`/seasons/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR<ApiResponse<SeasonData>>(`/seasons/${id}`, fetcher);
 
   return {
-    data,
+    data: data?.data,
     isLoading,
     isError: error,
   };
 }
 
 export function useGetAllProgrammeBySeasonId(seasonId: string): Response<ProgrammeData[]> {
-  const { data, error, isLoading } = useSWR<ProgrammeData[]>(`/seasons/${seasonId}/programmes`, fetcher);
+  const { data, error, isLoading } = useSWR<ApiResponse<ProgrammeData[]>>(`/seasons/${seasonId}/programmes`, fetcher);
 
   return {
-    data,
+    data: data?.data,
     isLoading,
     isError: error,
   };
 }
 
 export function useGetProgrammeById(id: string): Response<ProgrammeData> {
-  const { data, error, isLoading } = useSWR<ProgrammeData>(`/programmes/${id}`, fetcher);
+  const { data, error, isLoading } = useSWR<ApiResponse<ProgrammeData>>(`/programmes/${id}`, fetcher);
 
   return {
-    data,
+    data: data?.data,
     isLoading,
     isError: error,
   };

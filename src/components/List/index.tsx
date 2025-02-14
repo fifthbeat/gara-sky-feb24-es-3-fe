@@ -1,8 +1,8 @@
 import cn from "classnames";
 import { BaseEntity } from "@services/types";
-import { getSynopsisByType } from "@services/utils/getSynopsisByType";
+import { getSynopsisByType } from "@utils/getSynopsisByType";
 import CardLink from "@components/CardLink";
-import { getImageUrlByUsage } from "@services/utils/getImageUrlByUsage";
+import { getImageUrlByUsage } from "@utils/getImageUrlByUsage";
 import ItemLink from "@components/ItemLink";
 import Text from "@components/Atoms/Text";
 import ListSkeleton from "./ListSkeleton";
@@ -38,6 +38,8 @@ const List = ({ entities, routePath, variant, title, isLoading }: Props) => {
 
       <div className={cn("list__wrapper", variant === "card" ? "card-list__wrapper" : "item-list__wrapper")}>
         {entities.map((entity) => {
+          console.log("ENTITY", entity);
+
           const imageUrl =
             variant === "card"
               ? getImageUrlByUsage(entity.images, "Cover")!

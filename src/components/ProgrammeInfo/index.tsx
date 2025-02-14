@@ -1,5 +1,5 @@
 import Text from "@components/Atoms/Text";
-import { formatSecondsToMinutes } from "../../utils/formatSecondsToMinutes";
+import { formatSecondsToMinutes } from "@utils/formatSecondsToMinutes";
 import "./styles.css";
 
 type Props = {

@@ -1,4 +1,4 @@
-import { BaseEntity } from "../types";
+import { BaseEntity } from "../services/types";
 
 type Image = BaseEntity["images"][number];
 

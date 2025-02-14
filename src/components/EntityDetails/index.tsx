@@ -1,8 +1,8 @@
 import Heading from "@components/Atoms/Heading";
 import Text from "@components/Atoms/Text";
 import { BaseEntity } from "@services/types";
-import { getImageUrlByUsage } from "@services/utils/getImageUrlByUsage";
-import { getSynopsisByType } from "@services/utils/getSynopsisByType";
+import { getImageUrlByUsage } from "@utils/getImageUrlByUsage";
+import { getSynopsisByType } from "@utils/getSynopsisByType";
 import cn from "classnames";
 import "./styles.css";
 
