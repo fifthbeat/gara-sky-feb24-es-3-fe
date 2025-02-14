@@ -26,9 +26,10 @@
 }
 
 .card__image {
-  width: 100%;
+  width: 150px;
   height: auto;
   display: block;
+  transition: all 0.3s ease-in-out;
 }
 
 .card__content {
@@ -53,6 +54,9 @@
 
 @media (min-width: 768px) {
   .card__link {
+    width: 250px;
+  }
+  .card__image {
     width: 250px;
   }
 }

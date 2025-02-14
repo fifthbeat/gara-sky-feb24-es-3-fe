@@ -3,6 +3,7 @@
   src: url("/font/Sky_Bold.woff2") format("woff2"), url("/font/Sky_Bold.woff") format("woff"),
     url("/font/Sky_Bold.ttf") format("truetype");
   font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   src: url("/font/Sky_Med.woff2") format("woff2"), url("/font/Sky_Med.woff") format("woff"),
     url("/font/Sky_Med.ttf") format("truetype");
   font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
   src: url("/font/Sky_Reg.woff2") format("woff2"), url("/font/Sky_Reg.woff") format("woff"),
     url("/font/Sky_Reg.ttf") format("truetype");
   font-weight: 400;
+  font-display: swap;
 }
 
 :root {
