@@ -1,21 +1,25 @@
 .layout {
   display: flex;
   flex-direction: column;
+  height: 100svh;
 }
 
 .layout__content {
   max-width: var(--container-max-width-small);
   padding: var(--grid-margin-small);
-  top: var(--mobile-header-height);
+  padding-top: calc(var(--mobile-header-height) + var(--grid-margin-small));
   flex-grow: 1;
   margin: 0 auto;
   width: 100%;
   position: relative;
+  overflow: auto;
+  min-height: calc(100svh - var(--mobile-header-height));
 }
 
 @media (min-width: 768px) {
   .layout__content {
-    top: var(--desktop-header-height);
+    padding-top: calc(var(--desktop-header-height) + var(--grid-margin-small));
+    min-height: calc(100svh - var(--desktop-header-height));
   }
 }
 
@@ -23,6 +27,7 @@
   .layout__content {
     max-width: var(--container-max-width-medium);
     padding: var(--grid-margin-medium);
+    padding-top: calc(var(--desktop-header-height) + var(--grid-margin-small));
   }
 }
 
@@ -30,6 +35,7 @@
   .layout__content {
     max-width: var(--container-max-width-large);
     padding: var(--grid-margin-large);
+    padding-top: calc(var(--desktop-header-height) + var(--grid-margin-small));
   }
 }
 
@@ -37,6 +43,7 @@
   .layout__content {
     max-width: var(--container-max-width-x-large);
     padding: var(--grid-margin-x-large);
+    padding-top: calc(var(--desktop-header-height) + var(--grid-margin-small));
   }
 }
 

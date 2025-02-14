@@ -133,14 +133,6 @@
   --radius-2x-small: var(--spacing-2x-small);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --product-neutral-100: var(--product-neutral-800);
-  }
-}
-
 :root {
   font-family: SkyRegular, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

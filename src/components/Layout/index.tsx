@@ -10,15 +10,16 @@ type Props = {
 
 const Layout = ({ fullWidth }: Props) => {
   return (
-    <div className="layout">
-      <Header />
+    <>
+      <div className="layout">
+        <Header />
 
-      <main className={cn("layout__content", { ["layout__content--full-width"]: fullWidth })}>
-        <Outlet />
-      </main>
-
+        <main className={cn("layout__content", { ["layout__content--full-width"]: fullWidth })}>
+          <Outlet />
+        </main>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
