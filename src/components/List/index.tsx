@@ -38,8 +38,6 @@ const List = ({ entities, routePath, variant, title, isLoading }: Props) => {
 
       <div className={cn("list__wrapper", variant === "card" ? "card-list__wrapper" : "item-list__wrapper")}>
         {entities.map((entity) => {
-          console.log("ENTITY", entity);
-
           const imageUrl =
             variant === "card"
               ? getImageUrlByUsage(entity.images, "Cover")!
