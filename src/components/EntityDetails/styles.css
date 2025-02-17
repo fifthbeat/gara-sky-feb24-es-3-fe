@@ -1,6 +1,7 @@
 .details__image-container {
   position: absolute;
   z-index: -1;
+  width: 100%;
 }
 
 .details__image-container::after {
@@ -11,6 +12,10 @@
   position: absolute;
   width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.8), transparent, var(--foreground));
+}
+
+.details__image-container img {
+  width: 100%;
 }
 
 .details__container {
